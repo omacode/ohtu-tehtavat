@@ -7,6 +7,7 @@ package ohtu;
 
 import com.google.gson.Gson;
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.Date;
 import org.apache.http.client.fluent.Request;
 
@@ -26,10 +27,11 @@ public class Main {
         System.out.println("Players from FIN " + new Date());
         System.out.println("");
         
+        Arrays.sort(players);
         for (Player player : players) {
             if (player.getNationality().equals("FIN")) {
 //                System.out.println(player.getName() + " team " + player.getTeam() + " goals " + player.getGoals() + " assists " + player.getAssists());
-                System.out.format("%-20s%-5s%2d + %2d = %2d\n", player.getName(), player.getTeam(), player.getGoals(), player.getAssists(), player.getGoals()+player.getAssists());
+                System.out.format("%-20s%-5s%2d + %2d = %2d\n", player.getName(), player.getTeam(), player.getGoals(), player.getAssists(), player.points());
             }
         }
     }
